@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for in 반복문 (인덱스를 반복) 하나의 변수에 여러개의 값을 저장하고 반복문을 이용해서 불러올 수 있다
+        const todos = ['우유구매', '업무 메일 확인하기', '필라테스 수업']
+
+        /* i로 하던 index로 하던 상관없다 */
+        for (const i in todos) {      
+            console.log(i);
+            console.log(todos[i]);
+            console.log(`${i+1}번째 할 일: ${todos[i]}`);
+        }
+        const todos2 = ['우유구매', '업무 메일 확인하기', '필라테스 수업']
+
+        //for of 반복문(요소의 값을 반복)
+        for (const todo of todos2) {
+            console.log(`오늘의 할 일:${todo}`)
+        }
+
+        for (let i = 0; i<5; i++){
+            console.log(`${i}번째 반복입니다.`);
+        }
+
+        // 1부터 N까지 더하기 
+        let output = 0
+        for (let i = 1; i<=100; i++) {
+            output += i;
+        }
+        console.log(`1~100까지 숫자를 모두 더하면 ${output}입니다`)
+
+//위에 todos가 있기 때문에 생략하고 바로 진행
+
+        for (let i = 0; i<todos.length; i++) {
+            console.log(`${i}번째 할 일: ${todos[i]}`)
+        }
+//여기서 -1을 안하면 3번 째 할일까지 값이 나옴
+        for (let i = todos.length -1; i>=0; i--) {    
+            console.log(`${i}번째 할 일: ${todos[i]}`)
+        }
+        
+/*         let i = 0
+        while(true) {
+            alert(`${i}번쨰 반복입니다.`)
+            i = i + 1
+        } */
+        
+        //break 키워드를 이용한 반복문 종료 (위에 반복되는 코드를 해놓았기 떄문에 안되는 거였다)
+        for (let i = 0; true; i++) {
+            alert(i + '번째 반복문입니다.');
+
+            const isContinue = confirm('계속하시겠습니까?');
+            if (!isContinue) {
+                break
+            }
+        }
+
+        //프로그램의 종료를 확인합니다
+        alert('프로그램 종료');
+
+        //continue는 다음게 실행이 안되고 다음 반복문으로 넘어간다
+        //1부터 10까지 짝수 더하기   //var는 에러가 나지 않지만 let은 변수명이 같으면 에러가 난다
+        let output2 = 0;
+        for (let i = 1; i<=10; i++) {
+            if (i%2 === 1){
+//홀수면 현재 반복을 중지하고 다음 반복을 수행
+                continue;
+            }
+            output2 += i;
+        }
+
+        alert(output2);
+
+        let output3 =''
+
+        for (let i = 1; i<10; i++) {
+            for (let j = 0; j<i; j++){
+                output +='*'
+            }
+            outupt +='\n'
+        }
+
+        console.log(output3)
+    </script>
+</body>
+</html>
